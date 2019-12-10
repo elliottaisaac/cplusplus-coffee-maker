@@ -46,32 +46,16 @@ class Heater{
     void HeatWater(){
         if(*heated == false){
             *heated = true;
-            cout << "The water is 72 degrees" << endl;
-            std::this_thread::sleep_for (std::chrono::milliseconds(100));
-            cout << "The water is heated to 82 degrees" << endl;
-            std::this_thread::sleep_for (std::chrono::milliseconds(100));
-            cout << "The water is heated to 92 degrees" << endl;
-            std::this_thread::sleep_for (std::chrono::milliseconds(100));
-            cout << "The water is heated to 102 degrees" << endl;
-            std::this_thread::sleep_for (std::chrono::milliseconds(100));
-            cout << "The water is heated to 112 degrees" << endl;
-            std::this_thread::sleep_for (std::chrono::milliseconds(100));
-            cout << "The water is heated to 122 degrees" << endl;
-            std::this_thread::sleep_for (std::chrono::milliseconds(100));
-            cout << "The water is heated to 132 degrees" << endl;
-            std::this_thread::sleep_for (std::chrono::milliseconds(100));
-            cout << "The water is heated to 142 degrees" << endl;
-            std::this_thread::sleep_for (std::chrono::milliseconds(100));
-            cout << "The water is heated to 152 degrees" << endl;
-            std::this_thread::sleep_for (std::chrono::milliseconds(100));
-            cout << "The water is heated to 162 degrees" << endl;
-            std::this_thread::sleep_for (std::chrono::milliseconds(100));
-            cout << "The water is heated to 172 degrees" << endl;
-            std::this_thread::sleep_for (std::chrono::milliseconds(100));
-            cout << "The water is heated to 182 degrees" << endl;
-            std::this_thread::sleep_for (std::chrono::milliseconds(100));
-            cout << "The water is heated to 185 degrees\n" << endl;
+            int waterTemp = 62;
+            while(waterTemp){
+                waterTemp += 10;
+                if(waterTemp > 185) waterTemp = 185;
+                cout << "HEATING... The water is " << waterTemp << " degrees" << endl;
+                std::this_thread::sleep_for (std::chrono::milliseconds(100));
+                if(waterTemp == 185) break;
+            }
         }
+            
         else{
             cout << "The water is already heated.\n" << endl;
         }
@@ -111,7 +95,7 @@ class CoffeeMaker{
         else{
            *cupsMade = 0;
         }
-        cout << "You have made " << *cupsMade << " cups of coffee in total.\n" << endl;
+        cout << "\nSo far, you have brewed " << *cupsMade << " cups of coffee in total.\n" << endl;
     }
     
     void MakingCoffee(){
@@ -168,3 +152,4 @@ int main()
 
     return 0;
 }
+
